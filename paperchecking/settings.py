@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "faculty","org",'rest_framework','api',
+    "faculty","org",'rest_framework','api','account',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +149,9 @@ REST_FRAMEWORK = {
 # settings.py
 
 AUTH_USER_MODEL = 'api.CustomUser'
+
+AUTHENTICATION_BACKENDS = [
+    'api.authentication.CustomUserAuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Include default backend for fallback
+    # Add other authentication backends if needed
+]

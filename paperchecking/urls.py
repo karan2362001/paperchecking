@@ -25,6 +25,7 @@ urlpatterns = [
     path("api-auth/",include('rest_framework.urls')),
     path("faculty/",include("faculty.urls")),
     path("org/",include("org.urls")),
+    path('',include("account.urls"))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
