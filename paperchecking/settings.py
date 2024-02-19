@@ -123,9 +123,8 @@ STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Additional locations of static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),)
 
 # Media files (user-uploaded files)
 # https://docs.djangoproject.com/en/3.2/topics/files/
