@@ -3,27 +3,25 @@ from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate,login
 from django.contrib import messages 
 from api.models import CustomUser
+import requests
 
 def adminHomepage(request):
     return render(request,"adminHomepage.html")
 
-def login(request):
-    if request.method=="POST":
-        username=request.POST['username']
-        password=request.POST['password']
-
-        user=auth.authenticate(username=username,password=password)
-
-        if user is not None:
-            auth.login(request,user)
-            return redirect('adminHomepage')
+def addEmployee(request):
+    if request.method == 'POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        role='3'
+        url="http://127.0.0.1:8000/api/admin/"
+        data={"username":username,"password":password,"role":role}
+        response = requests.post(url,data)
+        
+        #Checking the status code of the response to see if it was successful or not
+        if response.status_code==201:
+            messages.success(request,'Employee added successfully!')
+            return redirect('addEmployee')
         else:
-            messages.info(request,"invalid credentials...")
-            return redirect('login')
-    else:
-        return render(request,"login.html")
+            messages.error(request,'Error adding employee! Please try again later.')
 
-
-def logout(request):
-    auth.logout(request)
-    return render(request,"login.html")
+    return render(request,"addEmployee.html")

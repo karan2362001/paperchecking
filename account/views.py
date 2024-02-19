@@ -44,4 +44,4 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request,"login.html")
+    return redirect("login")
