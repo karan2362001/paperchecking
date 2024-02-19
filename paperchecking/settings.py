@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "faculty","org",'rest_framework','api','account','corsheaders',
+    "faculty","org",'rest_framework','api','account','corsheaders','tailwind', 'theme', 'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'corsheaders.middleware.CorsMiddleware',
+     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True 
@@ -157,3 +158,10 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Include default backend for fallback
     # Add other authentication backends if needed
 ]
+
+TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = 'npm.cmd'
