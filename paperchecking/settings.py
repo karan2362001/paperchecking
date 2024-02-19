@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "faculty","org",'rest_framework','api','account',
+    "faculty","org",'rest_framework','api','account','corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,8 +49,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True 
 ROOT_URLCONF = "paperchecking.urls"
 
 TEMPLATES = [
@@ -150,8 +152,9 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = 'api.CustomUser'
 
+
 AUTHENTICATION_BACKENDS = [
-    'api.authentication.CustomUserAuthenticationBackend',
+    #'api.authentication.CustomUserAuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',  # Include default backend for fallback
     # Add other authentication backends if needed
 ]
