@@ -25,3 +25,6 @@ def addEmployee(request):
             messages.error(request,'Error adding employee! Please try again later.')
 
     return render(request,"addEmployee.html")
+
+def forms(request):
+    return render(request,"forms.html")
