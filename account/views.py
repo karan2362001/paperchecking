@@ -11,7 +11,7 @@ from .decorators import role_required
 @role_required(['2'])
 def adminHomepage(request):
     
-    return render(request,"adminHomepage.html")
+    return render(request,"index.html")
 @role_required(['3'])
 def facultyHomepage(request):
     return render(request,"FacultyHomePage.html")
