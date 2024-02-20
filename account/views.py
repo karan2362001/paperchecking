@@ -22,6 +22,7 @@ def login(request):
         password=request.POST.get('password')
 
         user=auth.authenticate(request,username=username,password=password)
+        print(user)
         userData = get_object_or_404(CustomUser, username=username)
         userRole=userData.role
         if user is not None:
